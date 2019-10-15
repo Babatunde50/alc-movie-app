@@ -5,12 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { AllComponent } from './all/all.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    AllComponent
+    AllComponent,
+    FavouriteComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

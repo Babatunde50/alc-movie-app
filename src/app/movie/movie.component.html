@@ -1,0 +1,19 @@
+<div class="col-md-4 col-sm-6 mb-5">
+  <div class="card" style="width: 18rem;">
+    <img
+      [src]="movie.Poster"
+      class="card-img-top"
+      alt="{{ movie.Title }}"
+      style="max-height: 700px;"
+    />
+    <h5 class="card-body">
+      <h5 class="card-title">{{movie.Title}}</h5>
+      <p class="">{{movie.Year}}</p>
+      <hr />
+      <div class="d-flex justify-content-between">
+        <a href="#" class="btn btn-sm btn-outline-primary d-inline-block">More Details</a>
+        <a href="#" class="btn btn-sm btn-outline-secondary d-inline-block">Add to Favourite</a>
+      </div>
+    </h5>
+  </div>
+</div>

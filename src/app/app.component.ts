@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { AllService } from './All.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AllService]
 })
-export class AppComponent {
-  title = 'movie-app';
 
-  constructor(private http: HttpClient) {
-    // Send an http request
-    this.http.get('https://www.omdbapi.com/?s=man&apikey=7770e21c')
-      .subscribe(responseData => {
-        console.log(responseData);
-      })
+export class AppComponent implements OnInit  {
+  title = 'movie-app';
+  selected = 'all';
+  
+  constructor(private allService: AllService){}
+
+  ngOnInit() {
+    
   }
+
+  
+  onNavigate(feature: string) {
+    this.selected = feature;
+  }
+
 }
