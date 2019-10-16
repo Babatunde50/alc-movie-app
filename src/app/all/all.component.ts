@@ -1,4 +1,4 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AllService } from '../All.service'
 
@@ -9,8 +9,10 @@ import { AllService } from '../All.service'
 })
 
 export class AllComponent implements OnInit {
+  @Output() getMovie: EventEmitter<any> = new EventEmitter();
   movies: any[];
   response;
+  fav = 'Add Favourite';
 
   constructor(private http: HttpClient, private allService: AllService) {}
 
@@ -31,6 +33,17 @@ export class AllComponent implements OnInit {
     return initialSearches[searchIndex];
   }
 
+  ongetMovie(id) {
+    this.getMovie.emit(id);
+  }
 
+  onaddToFav(movie) {
+    const initialFavMovies = JSON.parse(window.localStorage.getItem("favMovies"));
+    if(initialFavMovies) {
+      window.localStorage.setItem("favMovies", JSON.stringify([...initialFavMovies, movie ]) )
+    } else {
+      window.localStorage.setItem("favMovies", JSON.stringify([movie]))
+    }
+  }
 
 }

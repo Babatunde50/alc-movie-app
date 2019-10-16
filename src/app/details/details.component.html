@@ -1,0 +1,26 @@
+<h1 class="text-center">{{ details.Title }}</h1>
+<div class="row">
+  <div class="col-md-4">
+    <img
+      [src]="details.Poster"
+      class="img-thumbnail img-responsive"
+      alt="{{ details.Title }}"
+      style="max-height: 700px;"
+    />
+  </div>
+  <div class="col-md-8">
+    <ul class="list-group">
+      <li class="list-group-item"> Rated: {{details.Rated}} </li>
+      <li class="list-group-item"> Released: {{details.Released}} </li>
+      <li class="list-group-item"> Runtime: {{details.Runtime}}</li>
+      <li class="list-group-item"> Genre: {{details.Genre}}</li>
+      <li class="list-group-item"> Director: {{details.Director}} </li>
+      <li class="list-group-item"> Writer: {{details.Writer}} </li>
+      <li class="list-group-item"> Actors: {{details.Actors}} </li>
+      <li class="list-group-item"> Plot: {{details.Plot}} </li>
+      <li class="list-group-item"> Language: {{details.Language}} </li>
+      <li class="list-group-item"> Country: {{details.Country}} </li>
+      <li class="list-group-item"> Awards: {{details.Awards}} </li>
+    </ul>
+  </div>
+</div>

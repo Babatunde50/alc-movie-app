@@ -1,11 +1,25 @@
 <app-header (featureSelected)="onNavigate($event)" ></app-header>
 <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-6 col-sm-8">
+          <input type="search" class="form-control" placeholder="Search Movies">
+      </div>
+      <div class="col-md-4 col-sm-4">
+        <button type="button" class="btn btn-outline-primary"> Search </button>
+      </div>
+    </div>
   <div class="row">
     <div class="col-md-12" *ngIf="selected === 'all'">
-      <app-all></app-all>
+      <app-all (getMovie)="ongetMovie($event)"></app-all>
     </div>
-    <div class="col-md-12" *ngIf="selected !== 'all'">
-      <app-favourite></app-favourite>
+    <div class="col-md-12" *ngIf="selected === 'fav'">
+      <app-favourite (getMovie)="ongetMovie($event)" ></app-favourite>
+    </div>
+    <div class="col-md-12 mt-5" *ngIf="selected === 'movie'">
+      <app-details [details]="details" ></app-details>
+      <div class="text-center">
+          <button class="btn btn-outline-link" (click)="onBack()" > <<< Back </button>
+      </div>
     </div>
   </div>
 </div>

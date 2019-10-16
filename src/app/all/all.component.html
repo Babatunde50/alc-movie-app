@@ -1,6 +1,12 @@
 <div class="mt-5">
-    <h1>All Movies...</h1>
-    <div class="row">
-        <app-movie *ngFor="let movie of movies" [movie]="movie" ></app-movie>
-    </div>
+  <h1>All Movies...</h1>
+  <div class="row">
+    <app-movie
+      *ngFor="let movie of movies"
+      [movie]="movie"
+      (getMovie)="ongetMovie($event)"
+      (addToFav)="onaddToFav($event)"
+      [isFav]="fav"
+    ></app-movie>
+  </div>
 </div>

@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { AllComponent } from './all/all.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { MovieComponent } from './movie/movie.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { MovieComponent } from './movie/movie.component';
     HeaderComponent,
     AllComponent,
     FavouriteComponent,
-    MovieComponent
+    MovieComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

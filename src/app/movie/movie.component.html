@@ -11,8 +11,8 @@
       <p class="">{{movie.Year}}</p>
       <hr />
       <div class="d-flex justify-content-between">
-        <a href="#" class="btn btn-sm btn-outline-primary d-inline-block">More Details</a>
-        <a href="#" class="btn btn-sm btn-outline-secondary d-inline-block">Add to Favourite</a>
+        <button type="button" (click)="onSelected()" class="btn btn-sm btn-outline-primary d-inline-block">More Details</button>
+        <button type="button" (click)="onAdd()" class="btn btn-sm btn-outline-secondary d-inline-block"> {{isFav}} </button>
       </div>
     </h5>
   </div>

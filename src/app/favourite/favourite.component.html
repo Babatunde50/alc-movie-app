@@ -1,1 +1,15 @@
-<p>favourite works!</p>
+<div class="mt-5">
+  <h1>Favourite Movies...</h1>
+  <div class="row" *ngIf="movies.length > 0">
+    <app-movie
+      *ngFor="let movie of movies"
+      [movie]="movie"
+      (getMovie)="ongetMovie($event)"
+      (addToFav)="onremoveFromFav($event)"
+      [isFav]="fav"
+    ></app-movie>
+  </div>
+  <div class="row" *ngIf="movies.length === 0">
+    <h3>You've not added any movie as Favourite</h3>
+  </div>
+</div>
