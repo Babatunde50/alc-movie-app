@@ -1,5 +1,5 @@
-<h1 class="text-center">{{ details.Title }}</h1>
-<div class="row">
+<h1 class="text-center" *ngIf="details" >{{ details.Title }}</h1>
+<div class="row" *ngIf="details">
   <div class="col-md-4">
     <img
       [src]="details.Poster"
@@ -23,4 +23,7 @@
       <li class="list-group-item"> Awards: {{details.Awards}} </li>
     </ul>
   </div>
+</div>
+<div class="row" *ngIf="!details">
+    <div class="loader">Loading...</div>
 </div>
