@@ -1,11 +1,13 @@
 <div class="mt-5">
-  <div class="row">
-    <app-movie
+  <div class="row" *ngIf="!loading">
+    <app-movie 
       *ngFor="let movie of movies"
       [movie]="movie"
-      (getMovie)="ongetMovie($event)"
       (addToFav)="onaddToFav($event)"
       [isFav]="fav"
     ></app-movie>
+  </div>
+  <div class="row">
+      <div class="loader" *ngIf="loading">Loading...</div>
   </div>
 </div>

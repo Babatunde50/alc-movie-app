@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -6,11 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  @Input() details;
+  details;
+  loading: boolean = false;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private http: HttpClient ) { }
 
   ngOnInit() {
+    this.loading = true;
+    this.http.get(`http://www.omdbapi.com/?i=${this.route.snapshot.params['id']}&apikey=7770e21c`)
+      .subscribe(responseData  => {
+        this.details = responseData;
+        this.loading = false;
+      })
   }
+  
 
 }

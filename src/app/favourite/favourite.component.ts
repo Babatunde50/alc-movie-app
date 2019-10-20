@@ -6,7 +6,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  @Output() getMovie: EventEmitter<any> = new EventEmitter();
   movies = [];
   fav = 'Remove Favourite';
 
@@ -20,17 +19,12 @@ export class FavouriteComponent implements OnInit {
     console.log(this.movies);
   }
 
-  
-  ongetMovie(id) {
-    this.getMovie.emit(id);
-  }
-
   onremoveFromFav(movie) {
     const initialFavMovies = JSON.parse(window.localStorage.getItem("favMovies"));
     const updatedFavMovies = initialFavMovies.filter(m => m.imdbID !== movie.imdbID);
     window.localStorage.setItem('favMovies', JSON.stringify(updatedFavMovies) )
     this.movies = updatedFavMovies;
-    console.log('remove!')
+    alert(movie.Title + ' has been removed from your favourite list successfully!')
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie',
@@ -11,13 +12,14 @@ export class MovieComponent implements OnInit {
   @Output() getMovie: EventEmitter<any> = new EventEmitter();
   @Output() addToFav: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor( private router: Router, private route: ActivatedRoute  ) { }
 
   ngOnInit() {
   }
 
   onSelected() {
     this.getMovie.emit(this.movie.imdbID);
+    this.router.navigate([ '/movies', this.movie.imdbID ]);
   }
 
   onAdd() {

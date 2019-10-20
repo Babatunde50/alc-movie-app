@@ -1,4 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { AllService } from '../All.service';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-all',
@@ -7,20 +9,38 @@ import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 })
 
 export class AllComponent implements OnInit {
-  @Input() search: string
-  @Input() movies;
+  movies = [];
   @Output() getMovie: EventEmitter<any> = new EventEmitter();
   response;
-  fav = 'Add Favourite';
+  fav: string = 'Add Favourite';
+  loading = false;
 
-  constructor() {}
-
-  ngOnInit() {
-
+  constructor(private http: HttpClient, private allService: AllService){
+    this.allService.searchUpdated.subscribe(
+      (search: string) => {
+        this.onGetMovies(search)
+      }
+    )
   }
 
-  ongetMovie(id) {
-    this.getMovie.emit(id);
+  ngOnInit() {
+    this.onGetMovies(this.getInitialSearchValue());
+  }
+
+  onGetMovies(search) {
+    this.loading = true;
+    this.http.get(`https://www.omdbapi.com/?s=${search}&apikey=7770e21c`)
+      .subscribe(responseData  => {
+        this.response = responseData;
+        this.movies = this.response.Search;
+        this.loading = false;
+      })
+  }
+
+  getInitialSearchValue() {
+    const initialSearches = ['man', 'spider', 'death', 'bat', 'fast', 'furious', 'bond'];
+    const searchIndex = Math.floor(Math.random() * 7);
+    return initialSearches[searchIndex];
   }
 
   onaddToFav(movie) {

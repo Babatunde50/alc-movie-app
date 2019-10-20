@@ -1,24 +1,18 @@
-<app-header (featureSelected)="onNavigate($event)" ></app-header>
+<app-header></app-header>
 <div class="container">
-    <div class="row mt-3">
-      <div class="col-md-6 col-sm-10 offset-md-3">
-          <input type="search" (input)="onHandleChange($event)" value="{{ search }}" class="form-control" placeholder="Search Movies">
-      </div>
+  <div class="row mt-3">
+    <div class="col-md-6 col-sm-10 offset-md-3">
+      <input
+        type="search"
+        (input)="onHandleChange($event)"
+        class="form-control"
+        placeholder="Search Movies"
+      />
     </div>
+  </div>
   <div class="row">
-    <div class="col-md-12" *ngIf="selected === 'all'">
-        <h1 class="my-2 text-center">Search Movies</h1>
-      <div class="loader" *ngIf="loading">Loading...</div>
-      <app-all *ngIf="!loading" (getMovie)="ongetMovie($event)" [movies]="movies" [search]="search"></app-all>
-    </div>
-    <div class="col-md-12" *ngIf="selected === 'fav'">
-      <app-favourite (getMovie)="ongetMovie($event)" ></app-favourite>
-    </div>
-    <div class="col-md-12 mt-5" *ngIf="selected === 'movie'">
-      <app-details [details]="details" ></app-details>
-      <div class="text-center">
-          <button class="btn btn-outline-link" (click)="onBack()" > <<< Back </button>
-      </div>
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
     </div>
   </div>
 </div>

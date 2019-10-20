@@ -8,6 +8,7 @@ import { AllComponent } from './all/all.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { MovieComponent } from './movie/movie.component';
 import { DetailsComponent } from './details/details.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DetailsComponent } from './details/details.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

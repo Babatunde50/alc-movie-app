@@ -1,22 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a 
-      class="navbar-brand" 
-      href="#"
-      (onclick)="onSelect('all')">ALCMovies</a>
-    <div class="" id="">
-      <ul class="navbar-nav d-inline-block">
-        <li class="nav-item d-inline-block">
-          <a 
-            class="nav-link" 
-            (click)="onSelect('all')"
-            href="#">All<span class="sr-only">(current)</span></a>
-        </li> &nbsp;&nbsp;&nbsp;
-        <li class="nav-item d-inline-block">
-          <a 
-            class="nav-link" 
-            (click)="onSelect('fav')"
-            href="#">Favourites</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+<nav
+  class="navbar navbar-expand-lg navbar-light"
+  style="background-color: #e3f2fd;"
+>
+  <a class="navbar-brand" routerLink="/">ALCMovies</a>
+  <div class="" id="">
+    <ul class="navbar-nav d-inline-block">
+      <li class="nav-item d-inline-block" routerLinkActive="active">
+        <a class="nav-link" routerLink="/movies"
+          >All<span class="sr-only">(current)</span></a
+        >
+      </li>
+      &nbsp;&nbsp;&nbsp;
+      <li routerLinkActive="active" class="nav-item d-inline-block">
+        <a class="nav-link" routerLink="/favorite">Favourites</a>
+      </li>
+    </ul>
+  </div>
+</nav>
