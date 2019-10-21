@@ -4,6 +4,7 @@
       *ngFor="let movie of movies"
       [movie]="movie"
       (addToFav)="onaddToFav($event)"
+      (removeFromFav)="onRemoveFromFav($event)"
       [isFav]="fav"
     ></app-movie>
   </div>

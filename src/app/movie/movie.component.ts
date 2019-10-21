@@ -11,6 +11,7 @@ export class MovieComponent implements OnInit {
   @Input() isFav;
   @Output() getMovie: EventEmitter<any> = new EventEmitter();
   @Output() addToFav: EventEmitter<any> = new EventEmitter();
+  @Output() removeFromFav: EventEmitter<any> = new EventEmitter();
 
   constructor( private router: Router, private route: ActivatedRoute  ) { }
 
@@ -23,7 +24,11 @@ export class MovieComponent implements OnInit {
   }
 
   onAdd() {
-    this.addToFav.emit(this.movie)
+    this.addToFav.emit(this.movie);
+  }
+
+  onRemove() {
+    this.removeFromFav.emit(this.movie);
   }
 
 }

@@ -19,12 +19,11 @@ export class FavouriteComponent implements OnInit {
     console.log(this.movies);
   }
 
-  onremoveFromFav(movie) {
+  onRemoveFromFav(movie) {
     const initialFavMovies = JSON.parse(window.localStorage.getItem("favMovies"));
     const updatedFavMovies = initialFavMovies.filter(m => m.imdbID !== movie.imdbID);
     window.localStorage.setItem('favMovies', JSON.stringify(updatedFavMovies) )
     this.movies = updatedFavMovies;
     alert(movie.Title + ' has been removed from your favourite list successfully!')
   }
-
 }

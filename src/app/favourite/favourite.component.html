@@ -4,8 +4,7 @@
     <app-movie
       *ngFor="let movie of movies"
       [movie]="movie"
-      (addToFav)="onremoveFromFav($event)"
-      [isFav]="fav"
+      (removeFromFav)="onRemoveFromFav($event)"
     ></app-movie>
   </div>
   <div class="row" *ngIf="movies.length === 0">
